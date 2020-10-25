@@ -1,0 +1,32 @@
+input[type=text]:focus{
+    border : 3px solid white;
+}
+input[type=text]{
+    transition: all 1s ease;
+    box-sizing: border-box;
+    outline: none;
+    border: 3px solid #6b6b6b;
+}
+
+button{
+    float: right;
+    margin-top: 6%;
+    margin-right: 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-family: "Verdana";
+    background-color: #a9de90;
+    outline: none;
+    color: black;
+    border:none;
+    font-size: 16px;
+    width: 10%;
+    
+}
+  
+.Text{
+    float: left;
+    margin-left: 15px;
+    color: white;
+}
+  
