@@ -1,7 +1,10 @@
 import React from 'react';
-import Task from '../Task/Task.js';
-import TaskAdd from '../TaskAdd/TaskAdd';
-import './ToDoList.css'
+import Task from '../Task/Task.jsx';
+import TaskAdd from '../TaskAdd/TaskAdd.jsx';
+import styles from './ToDoList.module.scss'
+import classNames from 'classnames/bind'
+
+const cx = classNames.bind(styles)
 
 class TodoList extends React.Component{
 	state = {
@@ -37,6 +40,7 @@ class TodoList extends React.Component{
 				completed: true
 			  },
 		],
+		theme : 'dark'
 	}
 
     onClick = (id) =>{
@@ -68,15 +72,15 @@ class TodoList extends React.Component{
 	
 
     getGenerator = ()=>{
-		this.generator = this.state.tasks.map(x => <Task {...[x,this.onClick]}  key={x.id}/>).sort().reverse()
+		this.generator = this.state.tasks.map(x => <Task {...[x,this.onClick,this.state.theme]}  key={x.id}/>).sort().reverse()
     }
 
 	render(){
 		this.getGenerator()
 		return(
-			<div>
-			<h2 className = "Heading">My TODO List</h2>
-			<TaskAdd onClick = {this.addTask}></TaskAdd>
+			<div className = {cx("Home",{[`Home-theme-${this.state.theme}`]:true})}>
+			<h2 className = {cx("Heading",{[`Heading-theme-${this.state.theme}`]:true})}>My TODO List</h2>
+			<TaskAdd onClick = {this.addTask} theme = {this.state.theme}></TaskAdd>
 			{this.generator}
 			</div>
 

@@ -1,25 +1,25 @@
 
 .Task{
-    box-sizing: border-box;
-    border-radius: 20px;
-    background-color : #454545;
-    width: 50%;
-    font-family: "Verdana";
-    margin-left: 25%;
-    height: 140px;
-    margin-bottom: 10px;
-    transition: all 1s ease;
-}
-  
-.Task:hover{
-    
+    &:hover{
     background-color: #6b6b6b;
     margin-left: 24%;
     width: 52%;
-    
+    }
+    &-theme-dark{
+        background-color : #454545;
+    }
+    box-sizing: border-box;
+        border-radius: 20px;
+        width: 50%;
+        font-family: "Verdana";
+        margin-left: 25%;
+        height: 140px;
+        margin-bottom: 10px;
+        transition: all 1s ease;
 }
+
   
-button{
+.Button{
     float: right;
     margin-top: 6%;
     margin-right: 20px;

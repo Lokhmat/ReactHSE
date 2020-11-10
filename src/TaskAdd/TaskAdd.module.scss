@@ -1,0 +1,54 @@
+input[type=text]{
+    &:focus{
+        border : 3px solid white;
+    }
+    transition: all 1s ease;
+    box-sizing: border-box;
+    outline: none;
+    border: 3px solid #6b6b6b;
+}
+
+.AddTask{
+    &:hover{
+    background-color: #6b6b6b;
+    margin-left: 24%;
+    width: 52%;
+    }
+    &-theme-dark{
+        background-color : #454545;
+    }
+    box-sizing: border-box;
+        border-radius: 20px;
+        width: 50%;
+        font-family: "Verdana";
+        margin-left: 25%;
+        height: 140px;
+        margin-bottom: 10px;
+        transition: all 1s ease;
+}
+
+.Button{
+    float: right;
+    margin-top: 6%;
+    margin-right: 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-family: "Verdana";
+    background-color: #a9de90;
+    outline: none;
+    color: black;
+    border:none;
+    font-size: 16px;
+    width: 10%;
+    
+}
+  
+.Text{
+    float: left;
+    margin-left: 15px;
+    &-theme-dark{
+        color: white;
+    }
+    
+}
+  

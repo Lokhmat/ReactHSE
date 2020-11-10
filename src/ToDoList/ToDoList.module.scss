@@ -1,0 +1,20 @@
+ 
+.Home{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    &-theme-dark{
+        
+        background-color: #121212;
+    }
+}
+
+.Heading{
+    text-align: center;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    &-theme-dark{
+        color: white;
+    }
+   
+}
