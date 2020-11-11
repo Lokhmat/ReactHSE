@@ -1,11 +1,19 @@
 
 .Task{
     &:hover{
-    background-color: #6b6b6b;
     width: 57%;
     }
     &-theme-dark{
         background-color : #454545;
+        &:hover{
+            background-color: #6b6b6b;
+        }
+    }
+    &-theme-light{
+        background-color: #e4ebf0;
+        &:hover{
+            background-color: #d5d9db;
+        }
     }
     box-sizing: border-box;
     border-radius: 20px;
@@ -21,6 +29,7 @@
     margin-bottom: 5px;
     margin-top: 5px;
     padding: 10px;
+    transition-duration: 1s;
 }
 
   
@@ -42,5 +51,9 @@
     &-theme-dark{
         color: white;
     }
+    &theme-light{
+        color: black;
+    }
+    transition-duration: 1s;
 }
   

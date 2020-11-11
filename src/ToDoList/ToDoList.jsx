@@ -69,7 +69,9 @@ class TodoList extends React.Component{
         this.setState({tasks : tasks})
 	}
 	
-	
+	changeTheme = event => {
+		this.setState({theme:event.target.value})
+	}
 
     getGenerator = ()=>{
 		this.generator = this.state.tasks.map(x => <Task {...[x,this.onClick,this.state.theme]}  key={x.id}/>).sort().reverse()
@@ -79,6 +81,12 @@ class TodoList extends React.Component{
 		this.getGenerator()
 		return(
 			<div className = {cx("Home",{[`Home-theme-${this.state.theme}`]:true})}>
+			<div className = {cx("Radio",{[`Radio-theme-${this.state.theme}`]:true})}>
+				<input type="radio" id="light" value="light" name="theme" checked = {this.state.theme==="light"}onChange = {this.changeTheme}></input>
+				<label>Light theme</label>
+				<input type="radio" id = "dark" value="dark" name="theme" checked={this.state.theme==="dark"} onChange = {this.changeTheme}></input>
+				<label>Dark theme</label>
+			</div>
 			<h2 className = {cx("Heading",{[`Heading-theme-${this.state.theme}`]:true})}>My TODO List</h2>
 			<TaskAdd onClick = {this.addTask} theme = {this.state.theme}></TaskAdd>
 			{this.generator}
