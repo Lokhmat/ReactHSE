@@ -11,7 +11,7 @@ class TaskAdd extends React.Component{
     }
     render(){
         return(
-            <div>
+            
             <div className = {cx("AddTask",{[`AddTask-theme-${this.props.theme}`]:true})} >
 		        <div className = {cx("Text",{[`Text-theme-${this.props.theme}`]:true})}>
 		            <p><input placeholder = "Type name here" type = "text" onChange = {(event) => this.newTask.name = event.target.value}></input></p>
@@ -19,7 +19,7 @@ class TaskAdd extends React.Component{
 		        </div>
 		        <button className = {cx("Button")} onClick = {() => this.props.onClick(this.newTask)}>Add</button>
 	        </div>
-            </div>
+            
         )        
     }
 }

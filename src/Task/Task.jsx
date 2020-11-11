@@ -11,7 +11,7 @@ class Task extends React.Component{
     render(){
     return(
         <div className = {cx("Task",{[`Task-theme-${this.props[2]}`]:true})}>
-		<div className = {cx("Text")}>
+		<div className = {cx("Text",{[`Text-theme-${this.props[2]}`]:true})}>
 		<p>{this.props[0].name}</p>
 		<p>{this.props[0].description}</p>
 		<p>{this.props[0].completed?'Done':'Active'}</p>

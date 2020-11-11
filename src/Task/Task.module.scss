@@ -2,27 +2,29 @@
 .Task{
     &:hover{
     background-color: #6b6b6b;
-    margin-left: 24%;
-    width: 52%;
+    width: 57%;
     }
     &-theme-dark{
         background-color : #454545;
     }
     box-sizing: border-box;
-        border-radius: 20px;
-        width: 50%;
-        font-family: "Verdana";
-        margin-left: 25%;
-        height: 140px;
-        margin-bottom: 10px;
-        transition: all 1s ease;
+    border-radius: 20px;
+    width: 55%;
+    font-family: "Verdana";
+    height: 140px;
+    margin-bottom: 10px;
+    transition: all 1s ease;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    padding: 10px;
 }
 
   
 .Button{
-    float: right;
-    margin-top: 6%;
-    margin-right: 20px;
     border-radius: 20px;
     text-decoration: none;
     font-family: "Verdana";
@@ -31,12 +33,14 @@
     border:none;
     font-size: 16px;
     width: 10%;
-    
+    min-width: 50px;
+    display: flex;
+    justify-content: space-around;
 }
   
 .Text{
-    float: left;
-    margin-left: 15px;
-    color: white;
+    &-theme-dark{
+        color: white;
+    }
 }
   
