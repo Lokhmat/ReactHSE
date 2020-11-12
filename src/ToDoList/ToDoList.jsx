@@ -43,39 +43,36 @@ class TodoList extends React.Component{
 		theme : 'dark'
 	}
 
-    onClick = (id) =>{
+	onClick = (id) =>{
 		const currState = this.state.tasks[id]
-        let newTask = [...this.state.tasks]
-        newTask[id] = {
-            id: id,
+		let newTask = [...this.state.tasks]
+		newTask[id] = {
+			id: id,
 			name: newTask[id].name,
 			description: newTask[id].description,
 			completed: !currState.completed
-        }
-        this.setState({tasks : newTask})
-        
-          
+		}
+		this.setState({tasks : newTask})
 	}
 	
 	addTask = (newTask) =>{
-		let tasks = [...this.state.tasks]
-        let addedTask = {
-            id: this.state.tasks.length,
+		let addedTask = {
+			id: this.state.tasks.length,
 			name: newTask.name,
 			description: newTask.description,
 			completed: false
 		}
-		tasks.push(addedTask)
-        this.setState({tasks : tasks})
+		const added = [...this.state.tasks,addedTask]
+		this.setState({tasks : added})
 	}
 	
 	changeTheme = event => {
 		this.setState({theme:event.target.value})
 	}
 
-    getGenerator = ()=>{
-		this.generator = this.state.tasks.map(x => <Task {...[x,this.onClick,this.state.theme]}  key={x.id}/>).sort().reverse()
-    }
+	getGenerator = ()=>{
+		this.generator = this.state.tasks.map(x => <Task task = {x} func = {this.onClick} theme={this.state.theme} key={x.id}/>).sort().reverse()
+}
 
 	render(){
 		this.getGenerator()
