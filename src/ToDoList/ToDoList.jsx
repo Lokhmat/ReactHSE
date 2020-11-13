@@ -72,7 +72,7 @@ class TodoList extends React.Component{
 
 	getGenerator = ()=>{
 		this.generator = this.state.tasks.map(x => <Task task = {x} func = {this.onClick} theme={this.state.theme} key={x.id}/>).sort().reverse()
-}
+	}
 
 	render(){
 		this.getGenerator()
