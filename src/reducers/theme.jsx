@@ -8,7 +8,7 @@ export const themeReducer = (state = initialState, action) =>{
     switch(action.type){
         case CHANGE_THEME:{
             return {
-                theme : action.payload
+                theme : state.theme==="dark"?"light":"dark"
             }
         }
         default:
