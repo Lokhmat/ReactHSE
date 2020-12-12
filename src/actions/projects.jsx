@@ -13,7 +13,9 @@ export const handleTaskDeletion = (task) =>({
     
 })
 
-export const handleTaskCompletion = (id) =>({
+export const handleTaskCompletion = (id,projName) =>({
     type : COMPLETE_TASK,
-    payload : id
+    payload :{id:id,
+        projName:projName
+    }
 })

@@ -6,32 +6,29 @@ import classNames from 'classnames/bind'
 import './ToDoList.module.scss'
 import { connect } from 'react-redux'
 import { handleThemeChange } from '../../actions/theme'
-import { handleTaskAdding } from '../../actions/task'
 
 const cx = classNames.bind(styles)
 
-const mapStateToProps = (state) =>({
-	tasks : state.tasks.tasks,
-	theme : state.theme.theme
-})
 
 const mapDispatchToProps = (dispatch) =>({
-	dispatchOnTaskAdd : (newTask) =>dispatch(handleTaskAdding(newTask)),
-	dispatchOnTaskDeletion : (delTask) =>dispatch(handleTaskAdding(delTask)),
+	
 	dispatchOnThemeChange : () =>dispatch(handleThemeChange())
 })
 
+const mapStateToProps = (state) =>({
+	tasks : state.tasks,
+	theme : state.theme.theme
+})
+
 class TodoListClass extends React.Component{
+
+	
 	changeTheme = event => {
 		this.props.dispatchOnThemeChange()
 	}
 
-	getGenerator = ()=>{
-		this.generator = this.props.tasks.map(x => <Task func = {this.onClick} id = {x.id} key={x.id}/>).sort().reverse()
-	}
-
 	render(){
-		this.getGenerator()
+		let usefulTasks = this.props.tasks.filter(x => x.name === this.props.projName)[0]
 		return(
 			<div className = {cx("Home",{[`Home-theme-${this.props.theme}`]:true})}>
 			<div className = {cx("Radio",{[`Radio-theme-${this.props.theme}`]:true})}>
@@ -39,9 +36,9 @@ class TodoListClass extends React.Component{
 				<input type="checkbox" className={cx("toggle")} onChange = {this.changeTheme}/>
 				<label>Light</label>
 			</div>
-			<h2 className = {cx("Heading",{[`Heading-theme-${this.props.theme}`]:true})}>My TODO List</h2>
-			<TaskAdd></TaskAdd>
-			{this.generator}
+			<h2 className = {cx("Heading",{[`Heading-theme-${this.props.theme}`]:true})}>{this.props.projName}</h2>
+			<TaskAdd projName = {this.props.projName}></TaskAdd>
+			{usefulTasks.tasks.map(x => <Task projName = {this.props.projName} id = {x.id} key={x.id}/>).sort().reverse()}
 			</div>
 
 		)
