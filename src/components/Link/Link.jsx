@@ -16,12 +16,12 @@ class LinkClass extends React.Component{
 	render(){
 
 	return(
-        <Link to={`/${this.props.id}`}>
-		<div className = {cx("Task",{[`Task-theme-${this.props.theme}`]:true})}>
-		<div className = {cx("Text",{[`Text-theme-${this.props.theme}`]:true})}>
-            <p>{this.props.name}</p>
+        <Link className = {cx("Link",{[`Link-theme-${this.props.theme}`]:true})} to={`/${this.props.id}`}>
+		
+		<div className = {cx("Text")}>
+            <div>{this.props.name}</div>
 		</div>
-	    </div>
+	    
         </Link>
     )
     }

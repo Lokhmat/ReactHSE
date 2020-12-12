@@ -23,7 +23,6 @@ class HomePageClass extends React.Component{
     }
 
     render(){
-        console.log(this.props.tasks)
         return(
             <div className = {cx("Home",{[`Home-theme-${this.props.theme}`]:true})}>
 			<div className = {cx("Radio",{[`Radio-theme-${this.props.theme}`]:true})}>
@@ -32,7 +31,7 @@ class HomePageClass extends React.Component{
 				<label>Light</label>
 			</div>
 			<h2 className = {cx("Heading",{[`Heading-theme-${this.props.theme}`]:true})}>My ToDoList</h2>
-			{this.props.tasks.map(x=> <LinkComp name = {x.name} id = {x.id}></LinkComp>)}
+			{this.props.tasks.map(x=> <LinkComp name = {x.name} id = {x.id} key={x.id}></LinkComp>)}
 			</div>
         )
     }
