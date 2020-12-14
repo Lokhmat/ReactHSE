@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './TaskAdd.module.scss'
 import classNames from 'classnames/bind'
 import { connect } from 'react-redux'
-import { handleTaskAdding } from '../../actions/task'
+import { handleTaskAdding } from '../../actions/projects'
 
 const cx = classNames.bind(styles)
 
@@ -16,6 +16,7 @@ const mapDispatchToProps = (dispatch) =>({
 
 class TaskAddClass extends React.Component{
     newTask = {
+        projName : this.props.projName,
         name : '',
         description : '',
     }
