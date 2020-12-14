@@ -1,7 +1,10 @@
 import React from 'react';
-import Task from '../Task/Task.js';
-import TaskAdd from '../TaskAdd/TaskAdd';
-import './ToDoList.css'
+import Task from '../Task/Task.jsx';
+import TaskAdd from '../TaskAdd/TaskAdd.jsx';
+import styles from './ToDoList.module.scss'
+import classNames from 'classnames/bind'
+
+const cx = classNames.bind(styles)
 
 class TodoList extends React.Component{
 	state = {
@@ -37,7 +40,9 @@ class TodoList extends React.Component{
 				completed: true
 			  },
 		],
+		theme : 'dark'
 	}
+
 	onClick = (id) =>{
 		const currState = this.state.tasks[id]
 		let newTask = [...this.state.tasks]
@@ -61,18 +66,26 @@ class TodoList extends React.Component{
 		this.setState({tasks : added})
 	}
 	
-	
+	changeTheme = event => {
+		this.setState({theme:event.target.value})
+	}
 
-    getGenerator = ()=>{
-		this.generator = this.state.tasks.map(x => <Task {...[x,this.onClick]}  key={x.id}/>).sort().reverse()
-    }
+	getGenerator = ()=>{
+		this.generator = this.state.tasks.map(x => <Task task = {x} func = {this.onClick} theme={this.state.theme} key={x.id}/>).sort().reverse()
+	}
 
 	render(){
 		this.getGenerator()
 		return(
-			<div>
-			<h2 className = "Heading">My TODO List</h2>
-			<TaskAdd onClick = {this.addTask}></TaskAdd>
+			<div className = {cx("Home",{[`Home-theme-${this.state.theme}`]:true})}>
+			<div className = {cx("Radio",{[`Radio-theme-${this.state.theme}`]:true})}>
+				<input type="radio" id="light" value="light" name="theme" checked = {this.state.theme==="light"}onChange = {this.changeTheme}></input>
+				<label>Light theme</label>
+				<input type="radio" id = "dark" value="dark" name="theme" checked={this.state.theme==="dark"} onChange = {this.changeTheme}></input>
+				<label>Dark theme</label>
+			</div>
+			<h2 className = {cx("Heading",{[`Heading-theme-${this.state.theme}`]:true})}>My TODO List</h2>
+			<TaskAdd onClick = {this.addTask} theme = {this.state.theme}></TaskAdd>
 			{this.generator}
 			</div>
 
